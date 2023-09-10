@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Synergy.WPF.Controls
+namespace Synergy.WPF.Common.Controls.NormalButton
 {
     public class NormalButton : Button
     {
@@ -14,7 +14,7 @@ namespace Synergy.WPF.Controls
 
         public NormalButton()
         {
-            this.DefaultStyleKey = typeof(NormalButton);
+            DefaultStyleKey = typeof(NormalButton);
         }
 
         public CornerRadius CornerRadius
