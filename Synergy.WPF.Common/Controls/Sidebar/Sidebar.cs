@@ -78,8 +78,11 @@ namespace Synergy.WPF.Common.Controls.Sidebar
 
             if (Output is null)
                 throw new NullReferenceException();
-            
-            Output.Navigate(navitem.NavLink);
+
+            if (navitem.NavCommand != null)
+                navitem.NavCommand.Execute(Output);
+            else
+                Output.Navigate(navitem.NavLink);
         }
     }
 }

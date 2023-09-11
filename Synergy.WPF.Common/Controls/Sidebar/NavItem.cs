@@ -54,6 +54,9 @@ namespace Synergy.WPF.Common.Controls.Sidebar
         public static readonly DependencyProperty NavLinkProperty =
             DependencyProperty.Register("NavLink", typeof(Uri), typeof(NavItem), new PropertyMetadata(null));
 
+        public static readonly DependencyProperty NavCommandProperty =
+            DependencyProperty.Register("NavCommand", typeof(ICommand), typeof(NavItem), new PropertyMetadata(null));
+
         public static readonly DependencyProperty IconProperty =
             DependencyProperty.Register("Icon", typeof(Geometry), typeof(NavItem), new PropertyMetadata(null));
 
@@ -71,6 +74,13 @@ namespace Synergy.WPF.Common.Controls.Sidebar
         {
             get { return (Uri)GetValue(NavLinkProperty); }
             set { SetValue(NavLinkProperty, value); }
+        }
+
+
+        public ICommand NavCommand
+        {
+            get { return (ICommand)GetValue(NavCommandProperty); }
+            set { SetValue(NavCommandProperty, value); }
         }
 
 
