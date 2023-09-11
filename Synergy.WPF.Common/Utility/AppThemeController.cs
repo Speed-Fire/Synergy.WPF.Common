@@ -33,8 +33,8 @@ namespace Synergy.WPF.Common.Utility
         {
             _themesDictionary = new()
             {
-                {"Light", "pack://application:,,,/Synergy.WPF.Common;component/Themes/LightTheme.xaml" },
-                {"Dark", "pack://application:,,,/Synergy.WPF.Common;component/Themes/DarkTheme.xaml" }
+                {"Light", "pack://application:,,,/Synergy.WPF.Common;component/Themes/Light.xaml" },
+                {"Dark", "pack://application:,,,/Synergy.WPF.Common;component/Themes/Dark.xaml" }
             };
         }
 
@@ -42,7 +42,7 @@ namespace Synergy.WPF.Common.Utility
         /// Add theme to app theme collection.
         /// </summary>
         /// <param name="themeName">Name of your theme.</param>
-        /// <param name="themePackPath">Theme application path (Example: "pack://application:,,,/Themes/LightTheme.xaml")</param>
+        /// <param name="themePackPath">Theme application path (Example: "pack://application:,,,/Themes/Light.xaml")</param>
         /// <returns>True if theme is successful added, otherwise - false.</returns>
         public bool AddTheme(string themeName, string themePackPath)
         {
