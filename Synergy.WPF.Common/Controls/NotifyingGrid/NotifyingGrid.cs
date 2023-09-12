@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
 namespace Synergy.WPF.Common.Controls.NotifyingGrid
@@ -66,6 +67,11 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
 
         #region Notification view fields
 
+        private DoubleAnimation _ntfAppearingAnimation;
+        private DoubleAnimation _ntfDisappearingAnimation;
+
+        private volatile bool _ntfDisappeared = false;
+
         private Grid _innerGrid;
 
         private TextBlock _title;
@@ -109,8 +115,34 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
 
         private void InitNotificationView()
         {
-            _innerGrid = new Grid();
+            _innerGrid = new Grid()
+            {
+                Opacity = 0,
+            };
             HideInnerGrid(true);
+
+            #region _innerGrid animation
+
+            _ntfAppearingAnimation = new()
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.15),
+            };
+
+            _ntfDisappearingAnimation = new()
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.15),
+            };
+
+            _ntfDisappearingAnimation.Completed += (obj, e) =>
+            {
+                _ntfDisappeared = true;
+            };
+
+            #endregion
 
             var backgroundGrid = new Grid()
             {
@@ -285,11 +317,16 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
             PrepareButtons(buttons);
 
             HideInnerGrid(false);
+            _innerGrid.BeginAnimation(Grid.OpacityProperty, _ntfAppearingAnimation);
 
             await Task.Run(() =>
             {
                 while(!(_btn1Clicked || _btn2Clicked || _btn3Clicked)) { }
             });
+
+            _innerGrid.BeginAnimation(Grid.OpacityProperty, _ntfDisappearingAnimation);
+            await Task.Run(() => { while (!_ntfDisappeared) { } });
+            _ntfDisappeared = false;
 
             HideInnerGrid(true);
 
