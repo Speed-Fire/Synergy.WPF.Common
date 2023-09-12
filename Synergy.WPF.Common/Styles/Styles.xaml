@@ -4,12 +4,10 @@
                     xmlns:sidebar="clr-namespace:Synergy.WPF.Common.Controls.Sidebar"
                     xmlns:ntfGrid="clr-namespace:Synergy.WPF.Common.Controls.NotifyingGrid">
     
-    <Style x:Key="NormalButtonStyle" TargetType="{x:Type controls:NormalButton}">
+    <Style x:Key="NormalButtonStyle.Base" TargetType="{x:Type controls:NormalButton}">
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="CornerRadius" Value="3"/>
         <Setter Property="Padding" Value="14,10"/>
-        <Setter Property="MinHeight" Value="44"/>
-        <Setter Property="MinWidth" Value="44"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
 
@@ -30,22 +28,8 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        
+
         <Style.Triggers>
-            <Trigger
-                Property="IsEnabled"
-                Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource BtnDisForeground}" />
-                <Setter Property="Background" Value="{DynamicResource BtnDisBackground}" />
-            </Trigger>
-
-            <Trigger
-                Property="IsEnabled"
-                Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource BtnForeground}" />
-                <Setter Property="Background" Value="{DynamicResource BtnBackground}" />
-            </Trigger>
-
             <Trigger 
                 Property="IsMouseOver"
                 Value="True">
@@ -55,9 +39,36 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Opacity" Value=".4" />
             </Trigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="True"/>
+                    <Condition Property="IsPressed" Value="False"/>
+                    <Condition Property="IsMouseOver" Value="False"/>
+                </MultiTrigger.Conditions>
+
+                <Setter Property="Opacity" Value="1" />
+            </MultiTrigger>
+            
+            <Trigger
+                Property="IsEnabled"
+                Value="False">
+                <Setter Property="Opacity" Value=".2" />
+            </Trigger>
+
+
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="NormalButtonStyle" TargetType="controls:NormalButton"
+           BasedOn="{StaticResource NormalButtonStyle.Base}">
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="MinWidth" Value="44"/>
+
+        <Setter Property="Foreground" Value="{DynamicResource NormalButton.Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource NormalButton.Background}" />
+    </Style>
+    
     <Style x:Key="Sidebar" TargetType="sidebar:Sidebar">
         <Setter Property="Background" Value="{DynamicResource SidebarBackground}"/>
     </Style>
@@ -66,7 +77,7 @@
         <Setter Property="Background" Value="{DynamicResource FrameBackground}"/>
     </Style>
 
-    <Style BasedOn="{StaticResource NavItemStyle}" x:Key="ThemedNavItemStyle" TargetType="sidebar:NavItem">
+    <Style x:Key="ThemedNavItemStyle" BasedOn="{StaticResource NavItemStyle}" TargetType="sidebar:NavItem">
         <Setter Property="IconColor" Value="{DynamicResource SidebarItemColor}"/>
         <Setter Property="HoveredIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
         <Setter Property="SelectedIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
@@ -75,6 +86,42 @@
     <Style x:Key="NotifyingGridStyle" TargetType="ntfGrid:NotifyingGrid">
         <Setter Property="NtfBackground" Value="{DynamicResource NotifyingGrid.Background}"/>
         <Setter Property="NtfForeground" Value="{DynamicResource NotifyingGrid.Foreground}"/>
+    </Style>
+
+    <Style x:Key="ListViewStyle" TargetType="ListView">
+        <Setter Property="Background" Value="{DynamicResource ListView.Background}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style x:Key="ListViewStyle.NormalButton" TargetType="controls:NormalButton"
+           BasedOn="{StaticResource NormalButtonStyle}">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="{DynamicResource ListView.Background}"/>
+        <Setter Property="MinHeight" Value="20"/>
+    </Style>
+
+    <Style x:Key="ListViewStyle.TextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="TextBoxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="TextBoxStyle.Transparent" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
     
 </ResourceDictionary>

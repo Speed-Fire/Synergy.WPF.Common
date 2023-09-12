@@ -15,8 +15,18 @@
     <!-- Frame colors -->
     <SolidColorBrush x:Key="FrameBackground" Color="{StaticResource Gray500}"/>
     
-    <!-- NotifyingGrid colors-->
+    <!-- NotifyingGrid colors -->
     <SolidColorBrush x:Key="NotifyingGrid.Background" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="NotifyingGrid.Foreground" Color="{StaticResource White}"/>
     
+    <!-- ListView colors -->
+    <SolidColorBrush x:Key="ListView.Background" Color="{StaticResource Gray700}"/>
+    
+    <!-- Text foreground -->
+    <SolidColorBrush x:Key="Text.Foreground" Color="{StaticResource Gray100}"/>
+
+    <!-- Normal button colors -->
+    <SolidColorBrush x:Key="NormalButton.Background" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="NormalButton.Foreground" Color="{StaticResource Gray100}"/>
+
 </ResourceDictionary>

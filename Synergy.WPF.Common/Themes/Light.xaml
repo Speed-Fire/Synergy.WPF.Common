@@ -17,4 +17,14 @@
     <!-- NotifyingGrid colors-->
     <SolidColorBrush x:Key="NotifyingGrid.Background" Color="{StaticResource Gray200}"/>
     <SolidColorBrush x:Key="NotifyingGrid.Foreground" Color="{StaticResource Black}"/>
+
+    <!-- ListView colors -->
+    <SolidColorBrush x:Key="ListView.Background" Color="{StaticResource Gray200}"/>
+
+    <!-- Text foreground -->
+    <SolidColorBrush x:Key="Text.Foreground" Color="{StaticResource Black}"/>
+
+    <!-- Normal button colors -->
+    <SolidColorBrush x:Key="NormalButton.Background" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="NormalButton.Foreground" Color="{StaticResource Black}"/>
 </ResourceDictionary>
