@@ -14,4 +14,9 @@
 
     <!-- Frame colors -->
     <SolidColorBrush x:Key="FrameBackground" Color="{StaticResource Gray500}"/>
+    
+    <!-- NotifyingGrid colors-->
+    <SolidColorBrush x:Key="NotifyingGrid.Background" Color="{StaticResource Gray600}"/>
+    <SolidColorBrush x:Key="NotifyingGrid.Foreground" Color="{StaticResource White}"/>
+    
 </ResourceDictionary>

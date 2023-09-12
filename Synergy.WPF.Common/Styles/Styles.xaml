@@ -1,8 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Synergy.WPF.Common.Controls.NormalButton"
-                    xmlns:sidebar="clr-namespace:Synergy.WPF.Common.Controls.Sidebar">
-    <Style TargetType="{x:Type controls:NormalButton}">
+                    xmlns:controls="clr-namespace:Synergy.WPF.Common.Controls"
+                    xmlns:sidebar="clr-namespace:Synergy.WPF.Common.Controls.Sidebar"
+                    xmlns:ntfGrid="clr-namespace:Synergy.WPF.Common.Controls.NotifyingGrid">
+    
+    <Style x:Key="NormalButtonStyle" TargetType="{x:Type controls:NormalButton}">
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="CornerRadius" Value="3"/>
         <Setter Property="Padding" Value="14,10"/>
@@ -69,4 +71,10 @@
         <Setter Property="HoveredIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
         <Setter Property="SelectedIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
     </Style>
+
+    <Style x:Key="NotifyingGridStyle" TargetType="ntfGrid:NotifyingGrid">
+        <Setter Property="NtfBackground" Value="{DynamicResource NotifyingGrid.Background}"/>
+        <Setter Property="NtfForeground" Value="{DynamicResource NotifyingGrid.Foreground}"/>
+    </Style>
+    
 </ResourceDictionary>

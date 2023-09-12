@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Synergy.WPF.Common.Controls.NormalButton
+namespace Synergy.WPF.Common.Controls
 {
     public class NormalButton : Button
     {
