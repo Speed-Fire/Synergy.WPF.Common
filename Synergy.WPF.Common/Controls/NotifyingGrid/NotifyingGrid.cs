@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Synergy.WPF.Common.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -70,6 +71,7 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
         private TextBlock _title;
         private TextBlock _description;
 
+        private Grid _buttonGrid;
         private NormalButton _button1;
         private NormalButton _button2;
         private NormalButton _button3;
@@ -157,6 +159,7 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
             {
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 TextAlignment = TextAlignment.Center,
+                Foreground = NtfForeground,
                 FontSize = 20,
                 FontWeight = FontWeights.Bold,
             };
@@ -177,6 +180,7 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
             {
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 TextAlignment = TextAlignment.Left,
+                Foreground = NtfForeground,
                 FontSize = 14,
                 Margin = new Thickness(10, 2, 10, 2)
             };
@@ -193,11 +197,11 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
             separator2.SetValue(Grid.RowProperty, 3);
 
             #region Buttons
-            var buttonGrid = new Grid();
-            buttonGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-            buttonGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-            buttonGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-            buttonGrid.SetValue(Grid.RowProperty, 4);
+            _buttonGrid = new Grid();
+            _buttonGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            _buttonGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            _buttonGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            _buttonGrid.SetValue(Grid.RowProperty, 4);
 
             _button1 = new NormalButton()
             {
@@ -247,9 +251,9 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
             };
             _button3.SetValue(Grid.ColumnProperty, 2);
 
-            buttonGrid.Children.Add(_button1);
-            buttonGrid.Children.Add(_button2);
-            buttonGrid.Children.Add(_button3);
+            _buttonGrid.Children.Add(_button1);
+            _buttonGrid.Children.Add(_button2);
+            _buttonGrid.Children.Add(_button3);
 
             #endregion
 
@@ -257,7 +261,7 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
             borderGrid.Children.Add(separator1);
             borderGrid.Children.Add(_description);
             borderGrid.Children.Add(separator2);
-            borderGrid.Children.Add(buttonGrid);
+            borderGrid.Children.Add(_buttonGrid);
 
             #endregion
 
@@ -308,9 +312,12 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
                     {
                         DisableButton(_button1, false);
 
-                        btn1TB.Text = "OK";
+                        btn1TB.Text = ButtonStrings.GetStringOK();
 
                         _button1.Click += _button1_Click;
+
+                        _buttonGrid.ColumnDefinitions[1].Width = GridLength.Auto;
+                        _buttonGrid.ColumnDefinitions[2].Width = GridLength.Auto;
                     }
                     break;
                 case MessageBoxButton.OKCancel:
@@ -318,11 +325,13 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
                         DisableButton(_button1, false);
                         DisableButton(_button2, false);
 
-                        btn1TB.Text = "OK";
-                        btn2TB.Text = "Cancel";
+                        btn1TB.Text = ButtonStrings.GetStringOK();
+                        btn2TB.Text = ButtonStrings.GetStringCancel();
 
                         _button1.Click += _button1_Click;
                         _button2.Click += _button2_Click;
+
+                        _buttonGrid.ColumnDefinitions[2].Width = GridLength.Auto;
                     }
                     break;
                 case MessageBoxButton.YesNoCancel:
@@ -331,9 +340,9 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
                         DisableButton(_button2, false);
                         DisableButton(_button3, false);
 
-                        btn1TB.Text = "Yes";
-                        btn2TB.Text = "No";
-                        btn3TB.Text = "Cancel";
+                        btn1TB.Text = ButtonStrings.GetStringYes();
+                        btn2TB.Text = ButtonStrings.GetStringNo();
+                        btn3TB.Text = ButtonStrings.GetStringCancel();
 
                         _button1.Click += _button1_Click;
                         _button2.Click += _button2_Click;
@@ -345,11 +354,13 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
                         DisableButton(_button1, false);
                         DisableButton(_button2, false);
 
-                        btn1TB.Text = "Yes";
-                        btn2TB.Text = "No";
+                        btn1TB.Text = ButtonStrings.GetStringYes();
+                        btn2TB.Text = ButtonStrings.GetStringNo();
 
                         _button1.Click += _button1_Click;
                         _button2.Click += _button2_Click;
+
+                        _buttonGrid.ColumnDefinitions[2].Width = GridLength.Auto;
                     }
                     break;
             }
@@ -373,6 +384,9 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
 
                         _button1.Click -= _button1_Click;
 
+                        _buttonGrid.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+                        _buttonGrid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+
                         res = MessageBoxResult.OK;
                     }
                     break;
@@ -386,6 +400,8 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
 
                         _button1.Click -= _button1_Click;
                         _button2.Click -= _button2_Click;
+
+                        _buttonGrid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
 
                         res = _btn1Clicked ? MessageBoxResult.OK : MessageBoxResult.Cancel;
                     }
@@ -418,6 +434,8 @@ namespace Synergy.WPF.Common.Controls.NotifyingGrid
 
                         _button1.Click -= _button1_Click;
                         _button2.Click -= _button2_Click;
+
+                        _buttonGrid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
 
                         res = _btn1Clicked ? MessageBoxResult.Yes : MessageBoxResult.No;
                     }
