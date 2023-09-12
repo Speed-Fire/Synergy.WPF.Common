@@ -102,7 +102,7 @@
 
     <Style x:Key="ListViewStyle.TextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="TextAlignment" Value="Center"/>
     </Style>
