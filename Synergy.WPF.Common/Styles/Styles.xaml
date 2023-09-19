@@ -137,11 +137,13 @@
     <Style x:Key="TimePickerStyle" TargetType="timePicker:TimePicker"
            BasedOn="{StaticResource TimePickerStyle.Base}">
 
-        <Setter Property="TextForeground" Value="{StaticResource Cyan100AccentBrush}"/>
+        <Setter Property="TextForeground" Value="{DynamicResource TimePicker.TextForeground}"/>
         <Setter Property="TextBackground" Value="{DynamicResource TimePicker.TextBackground}"/>
         <Setter Property="OuterBorderBackground" Value="{DynamicResource TimePicker.Background}"/>
+        <Setter Property="ButtonForeground" Value="{DynamicResource TertiaryBrush}"/>
+        <Setter Property="OuterBorderBrush" Value="{DynamicResource ListView.Background}"/>
         <Setter Property="OuterBorderThickness" Value="2"/>
-        <Setter Property="OuterBorderCornerRadius" Value="10"/>
+        <Setter Property="OuterBorderCornerRadius" Value="30"/>
 
     </Style>
     

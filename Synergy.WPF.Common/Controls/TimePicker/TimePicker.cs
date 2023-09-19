@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
 
 namespace Synergy.WPF.Common.Controls.TimePicker
@@ -73,17 +74,25 @@ namespace Synergy.WPF.Common.Controls.TimePicker
 
                 var vals = time.Split(':');
 
-                if (vals.Length != 3)
+                if (vals.Length != 2)
                     throw new ArgumentException(null, nameof(newValue));
 
                 var hours = uint.Parse(vals[0]);
-                var minutes = uint.Parse(vals[2]);
+                var minutes = uint.Parse(vals[1]);
 
                 if (hours > 23 || minutes > 59)
                     throw new ArgumentException(null, nameof(newValue));
 
-                _hoursTextBox.Text = hours.ToString();
-                _minutesTextBox.Text = minutes.ToString();
+                var hoursText = hours.ToString();
+                if (hoursText.Length == 1)
+                    hoursText = hoursText.Insert(0, "0");
+
+                var minutesText = minutes.ToString();
+                if (minutesText.Length == 1)
+                    minutesText = minutesText.Insert(0, "0");
+
+                _hoursTextBox.Text = hoursText;
+                _minutesTextBox.Text = minutesText;
             }
             catch(Exception)
             {
@@ -165,12 +174,25 @@ namespace Synergy.WPF.Common.Controls.TimePicker
         #region OuterBorderCornerRadius
 
         public static readonly DependencyProperty OuterBorderCornerRadiusProperty =
-            DependencyProperty.Register("OuterBorderCornerRadius", typeof(Thickness), typeof(TimePicker), new PropertyMetadata(new Thickness(0)));
+            DependencyProperty.Register("OuterBorderCornerRadius", typeof(CornerRadius), typeof(TimePicker), new PropertyMetadata(new CornerRadius(0)));
 
-        public Thickness OuterBorderCornerRadius
+        public CornerRadius OuterBorderCornerRadius
         {
-            get => (Thickness)GetValue(OuterBorderCornerRadiusProperty);
+            get => (CornerRadius)GetValue(OuterBorderCornerRadiusProperty);
             set => SetValue(OuterBorderCornerRadiusProperty, value);
+        }
+
+        #endregion
+
+        #region ButtonForeground
+
+        public static readonly DependencyProperty ButtonForegroundProperty =
+            DependencyProperty.Register("ButtonForeground", typeof(Brush), typeof(TimePicker), new PropertyMetadata(Brushes.Purple));
+
+        public Brush ButtonForeground
+        {
+            get => (Brush)GetValue(ButtonForegroundProperty);
+            set => SetValue(ButtonForegroundProperty, value);
         }
 
         #endregion
@@ -182,6 +204,11 @@ namespace Synergy.WPF.Common.Controls.TimePicker
         static TimePicker()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(typeof(TimePicker)));
+        }
+
+        public TimePicker()
+        {
+            _textChanging = false;
         }
 
         #endregion
@@ -264,11 +291,18 @@ namespace Synergy.WPF.Common.Controls.TimePicker
                 _minutesTextBox.LostFocus += MinutesTextBox_LostFocus;
                 _minutesTextBox.LostKeyboardFocus += MinutesTextBox_LostKeyboardFocus;
             }
+
+            if (BindingOperations.GetBindingExpression(this, TimeProperty) == null)
+            {
+                Time = "00:00";
+            }
         }
 
         #endregion
 
         #region Event handlers
+
+        #region Buttons
 
         private void IncHoursButton_Click(object sender, RoutedEventArgs e)
         {
@@ -382,10 +416,18 @@ namespace Synergy.WPF.Common.Controls.TimePicker
             _textChanging = false;
         }
 
+        #endregion
+
         #region HoursTextBox
 
         private void HoursTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
+            if (_hoursTextBox.Text.Length == 2)
+            {
+                e.Handled = true;
+                return;
+            }
+
             if (!CheckInputText(e.Text))
                 e.Handled = true;
         }
@@ -419,6 +461,12 @@ namespace Synergy.WPF.Common.Controls.TimePicker
 
         private void MinutesTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
+            if (_minutesTextBox.Text.Length == 2)
+            {
+                e.Handled = true;
+                return;
+            }
+
             if (!CheckInputText(e.Text))
                 e.Handled = true;
         }
@@ -460,8 +508,18 @@ namespace Synergy.WPF.Common.Controls.TimePicker
             if (tb == null)
                 return;
 
-            if (uint.Parse(tb.Text) > max)
-                tb.Text = max.ToString();
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                tb.Text = "00";
+            }
+            else
+            {
+                if (uint.Parse(tb.Text) > max)
+                    tb.Text = max.ToString();
+            }
+
+            if (tb.Text.Length == 1)
+                tb.Text = tb.Text.Insert(0, "0");
 
             UpdateTime();
 
@@ -475,7 +533,7 @@ namespace Synergy.WPF.Common.Controls.TimePicker
 
         private static bool CheckInputText(string text)
         {
-            var regex = new Regex(@"^\d\d$", RegexOptions.Compiled);
+            var regex = new Regex(@"^\d+$", RegexOptions.Compiled);
 
             return regex.IsMatch(text);
         }
