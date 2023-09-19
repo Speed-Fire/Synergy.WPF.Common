@@ -37,6 +37,8 @@ namespace Synergy.WPF.Common.Controls.TimePicker
 
         private volatile bool _textChanging;
 
+        private string _bindingInited;
+
         #endregion
 
         #region Properties
@@ -63,6 +65,13 @@ namespace Synergy.WPF.Common.Controls.TimePicker
         {
             if (_textChanging)
                 return;
+
+            if (_hoursTextBox is null || _minutesTextBox is null)
+            {
+                _bindingInited = newValue;
+                return;
+            }
+
             try
             {
                 _textChanging = true;
@@ -209,6 +218,7 @@ namespace Synergy.WPF.Common.Controls.TimePicker
         public TimePicker()
         {
             _textChanging = false;
+            _bindingInited = null;
         }
 
         #endregion
@@ -292,9 +302,13 @@ namespace Synergy.WPF.Common.Controls.TimePicker
                 _minutesTextBox.LostKeyboardFocus += MinutesTextBox_LostKeyboardFocus;
             }
 
-            if (BindingOperations.GetBindingExpression(this, TimeProperty) == null)
+            Time = "00:00";
+
+            if (!string.IsNullOrEmpty(_bindingInited))
             {
-                Time = "00:00";
+                Time = TimeOnly.Parse(Time).AddHours(1).ToString("HH:mm");
+                Time = _bindingInited;
+                _bindingInited = string.Empty;
             }
         }
 

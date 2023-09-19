@@ -14,7 +14,7 @@ namespace Synergy.WPF.Common.Converters
         {
             var time = (TimeOnly)value;
 
-            return time.ToString("hh:mm");
+            return time.ToString("HH:mm");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
