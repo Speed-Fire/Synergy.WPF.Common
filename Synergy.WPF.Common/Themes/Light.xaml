@@ -27,4 +27,9 @@
     <!-- Normal button colors -->
     <SolidColorBrush x:Key="NormalButton.Background" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="NormalButton.Foreground" Color="{StaticResource Black}"/>
+
+    <!-- Time picker colors -->
+    <SolidColorBrush x:Key="TimePicker.Background" Color="{StaticResource Gray200}"/>
+    <SolidColorBrush x:Key="TimePicker.TextBackground" Color="{StaticResource Gray100}"/>
+    
 </ResourceDictionary>
