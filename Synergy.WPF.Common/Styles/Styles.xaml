@@ -7,6 +7,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Controls/TimePicker/TimePicker.xaml"/>
+        <ResourceDictionary Source="../Controls/SliderButton/SliderButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
     <Style x:Key="NormalButtonStyle.Base" TargetType="{x:Type controls:NormalButton}">
@@ -144,6 +145,22 @@
         <Setter Property="OuterBorderBrush" Value="{DynamicResource ListView.Background}"/>
         <Setter Property="OuterBorderThickness" Value="2"/>
         <Setter Property="OuterBorderCornerRadius" Value="30"/>
+
+    </Style>
+
+    <Style x:Key="SliderButtonStyle" TargetType="controls:SliderButton"
+           BasedOn="{StaticResource SliderButton.Base}">
+
+        <Setter Property="CornerRadius" Value="10"/>
+
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                    <GradientStop Color="{DynamicResource Primary3}" Offset="0"/>
+                    <GradientStop Color="{DynamicResource Tertiary}" Offset="0.567"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
 
     </Style>
     
