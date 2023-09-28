@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Synergy.WPF.Common.Controls.TimePicker">
+                    xmlns:local="clr-namespace:Synergy.WPF.Common.Controls">
 
     <Style x:Key="TimePickerStyle.Base" TargetType="local:TimePicker">
         <Setter Property="Template">

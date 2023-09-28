@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 #nullable disable
 
-namespace Synergy.WPF.Common.Controls.Sidebar
+namespace Synergy.WPF.Common.Controls
 {
     public class Sidebar : ListBox
     {

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Synergy.WPF.Common.Controls.NotifyingGrid
+namespace Synergy.WPF.Common.Controls
 {
     public class NotifyingGrid : Grid
     {

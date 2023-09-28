@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Synergy.WPF.Common.Controls.TimePicker
+namespace Synergy.WPF.Common.Controls
 {
     [TemplatePart(Name = "PART_HoursTextBox", Type = typeof(TextBox))]
     [TemplatePart(Name = "PART_MinutesTextBox", Type = typeof(TextBox))]
