@@ -10,17 +10,27 @@ namespace Synergy.WPF.Common.Controls
 {
     public class NormalButton : Button
     {
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(NormalButton), new PropertyMetadata(new CornerRadius(0)));
+        #region Properties
 
-        public NormalButton()
-        {
-            DefaultStyleKey = typeof(NormalButton);
-        }
+        #region CornerRadius
+
+        public static readonly DependencyProperty CornerRadiusProperty =
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(NormalButton), new PropertyMetadata(new CornerRadius(0)));
 
         public CornerRadius CornerRadius
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
             set { SetValue(CornerRadiusProperty, value); }
         }
+
+        #endregion
+
+        #endregion
+
+        public NormalButton()
+        {
+            DefaultStyleKey = typeof(NormalButton);
+        }
+
     }
 }
