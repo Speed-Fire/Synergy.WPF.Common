@@ -27,6 +27,12 @@ namespace Synergy.WPF.Common.Controls
 
         #endregion
 
+        static NormalButton()
+        {
+            PaddingProperty.OverrideMetadata(typeof(NormalButton),
+                new FrameworkPropertyMetadata(new Thickness(0)));
+        }
+
         public NormalButton()
         {
             DefaultStyleKey = typeof(NormalButton);
