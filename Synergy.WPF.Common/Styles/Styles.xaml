@@ -8,8 +8,14 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Controls/TimePicker/TimePicker.xaml"/>
         <ResourceDictionary Source="../Controls/SliderButton/SliderButton.xaml"/>
+        <ResourceDictionary Source="../Controls/ScrollBar/ScrollBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
+
+    <Style x:Key="ScrollBarStyle" TargetType="ScrollBar"
+           BasedOn="{StaticResource ScrollBar.Base}">
+        <Setter Property="Foreground" Value="{DynamicResource ScrollBar.Foreground}"/>
+    </Style>
+
     <Style x:Key="NormalButtonStyle.Base" TargetType="{x:Type controls:NormalButton}">
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="CornerRadius" Value="3"/>
@@ -97,6 +103,11 @@
     <Style x:Key="ListBoxStyle" TargetType="ListBox">
         <Setter Property="Background" Value="{DynamicResource ListView.Background}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+
+        <Style.Resources>
+            <Style TargetType="ScrollBar"
+                   BasedOn="{StaticResource ScrollBarStyle}"/>
+        </Style.Resources>
     </Style>
 
     <Style x:Key="ListViewStyle" TargetType="ListView">
@@ -163,5 +174,5 @@
         </Setter>
 
     </Style>
-    
+
 </ResourceDictionary>

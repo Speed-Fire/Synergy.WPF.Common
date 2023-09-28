@@ -31,5 +31,8 @@
     <!-- Time picker colors -->
     <SolidColorBrush x:Key="TimePicker.Background" Color="{StaticResource Gray200}"/>
     <SolidColorBrush x:Key="TimePicker.TextBackground" Color="{StaticResource Gray100}"/>
-    
+
+    <!-- ScrollBar colors -->
+    <SolidColorBrush x:Key="ScrollBar.Foreground" Color="{StaticResource Gray400}"/>
+
 </ResourceDictionary>
