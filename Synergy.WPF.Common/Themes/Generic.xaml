@@ -2,6 +2,12 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/TimePicker/TimePicker.xaml"/>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/SliderButton/SliderButton.xaml"/>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/ScrollBar/ScrollBar.xaml"/>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/NormalButton/NormalButton.xaml"/>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/Sidebar/SideBar.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
