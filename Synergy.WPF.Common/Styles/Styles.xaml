@@ -1,75 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Synergy.WPF.Common.Controls"
-                    xmlns:sidebar="clr-namespace:Synergy.WPF.Common.Controls.Sidebar"
-                    xmlns:ntfGrid="clr-namespace:Synergy.WPF.Common.Controls.NotifyingGrid"
-                    xmlns:timePicker="clr-namespace:Synergy.WPF.Common.Controls.TimePicker">
-
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Controls/TimePicker/TimePicker.xaml"/>
-        <ResourceDictionary Source="../Controls/SliderButton/SliderButton.xaml"/>
-        <ResourceDictionary Source="../Controls/ScrollBar/ScrollBar.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+                    xmlns:controls="clr-namespace:Synergy.WPF.Common.Controls">
 
     <Style x:Key="ScrollBarStyle" TargetType="ScrollBar"
            BasedOn="{StaticResource ScrollBar.Base}">
         <Setter Property="Foreground" Value="{DynamicResource ScrollBar.Foreground}"/>
-    </Style>
-
-    <Style x:Key="NormalButtonStyle.Base" TargetType="{x:Type controls:NormalButton}">
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="CornerRadius" Value="3"/>
-        <Setter Property="Padding" Value="14,10"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type controls:NormalButton}">
-                    <Border
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-
-                        <ContentPresenter 
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-        <Style.Triggers>
-            <Trigger 
-                Property="IsMouseOver"
-                Value="True">
-                <Setter Property="Opacity" Value=".7"/>
-            </Trigger>
-
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".4" />
-            </Trigger>
-
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsEnabled" Value="True"/>
-                    <Condition Property="IsPressed" Value="False"/>
-                    <Condition Property="IsMouseOver" Value="False"/>
-                </MultiTrigger.Conditions>
-
-                <Setter Property="Opacity" Value="1" />
-            </MultiTrigger>
-            
-            <Trigger
-                Property="IsEnabled"
-                Value="False">
-                <Setter Property="Opacity" Value=".2" />
-            </Trigger>
-
-
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="NormalButtonStyle" TargetType="controls:NormalButton"
@@ -80,8 +15,8 @@
         <Setter Property="Foreground" Value="{DynamicResource NormalButton.Foreground}" />
         <Setter Property="Background" Value="{DynamicResource NormalButton.Background}" />
     </Style>
-    
-    <Style x:Key="Sidebar" TargetType="sidebar:Sidebar">
+
+    <Style x:Key="Sidebar" TargetType="controls:Sidebar">
         <Setter Property="Background" Value="{DynamicResource SidebarBackground}"/>
     </Style>
 
@@ -89,13 +24,13 @@
         <Setter Property="Background" Value="{DynamicResource FrameBackground}"/>
     </Style>
 
-    <Style x:Key="ThemedNavItemStyle" BasedOn="{StaticResource NavItemStyle}" TargetType="sidebar:NavItem">
+    <Style x:Key="ThemedNavItemStyle" BasedOn="{StaticResource NavItemStyle}" TargetType="controls:NavItem">
         <Setter Property="IconColor" Value="{DynamicResource SidebarItemColor}"/>
         <Setter Property="HoveredIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
         <Setter Property="SelectedIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
     </Style>
 
-    <Style x:Key="NotifyingGridStyle" TargetType="ntfGrid:NotifyingGrid">
+    <Style x:Key="NotifyingGridStyle" TargetType="controls:NotifyingGrid">
         <Setter Property="NtfBackground" Value="{DynamicResource NotifyingGrid.Background}"/>
         <Setter Property="NtfForeground" Value="{DynamicResource NotifyingGrid.Foreground}"/>
     </Style>
@@ -146,7 +81,7 @@
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
-    <Style x:Key="TimePickerStyle" TargetType="timePicker:TimePicker"
+    <Style x:Key="TimePickerStyle" TargetType="controls:TimePicker"
            BasedOn="{StaticResource TimePickerStyle.Base}">
 
         <Setter Property="TextForeground" Value="{DynamicResource TimePicker.TextForeground}"/>
