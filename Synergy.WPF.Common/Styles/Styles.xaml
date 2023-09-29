@@ -110,4 +110,10 @@
 
     </Style>
 
+    <Style x:Key="ScrollViewerStyle" TargetType="ScrollViewer">
+        <Style.Resources>
+            <Style TargetType="ScrollBar" BasedOn="{StaticResource ScrollBarStyle}"/>
+        </Style.Resources>
+    </Style>
+    
 </ResourceDictionary>
