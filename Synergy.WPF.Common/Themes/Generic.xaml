@@ -8,6 +8,7 @@
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/ScrollBar/ScrollBar.xaml"/>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/NormalButton/NormalButton.xaml"/>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/Sidebar/SideBar.xaml"/>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/AdvancedTextBox/AdvancedTextBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

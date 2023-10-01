@@ -115,5 +115,18 @@
             <Style TargetType="ScrollBar" BasedOn="{StaticResource ScrollBarStyle}"/>
         </Style.Resources>
     </Style>
+
+    <Style x:Key="AdvancedTextBoxStyle" TargetType="controls:AdvancedTextBox">
+        <Setter Property="Background" Value="{DynamicResource Gray500Brush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Gray900Brush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource Gray100Brush}"/>
+        <Setter Property="PlaceholderBrush" Value="{DynamicResource Gray300Brush}"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="8 2 8 2"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
     
 </ResourceDictionary>
