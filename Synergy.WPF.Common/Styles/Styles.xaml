@@ -128,5 +128,19 @@
         <Setter Property="Padding" Value="8 2 8 2"/>
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
+
+    <Style x:Key="BorderStyle.TextBlock" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource Gray500Brush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Gray900Brush}"/>
+        <Setter Property="Padding" Value="8 2 8 2"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style x:Key="TextBlockStyle.Bordered" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
     
 </ResourceDictionary>
