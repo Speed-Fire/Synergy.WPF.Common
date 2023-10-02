@@ -21,6 +21,8 @@ namespace Synergy.WPF.Common.Controls
         private TextBlock _placeholder;
         private ScrollViewer _contentHost;
 
+        private volatile bool _mustBeHidden;
+
         #endregion
 
         #region Properties
@@ -74,6 +76,11 @@ namespace Synergy.WPF.Common.Controls
                 .OverrideMetadata(typeof(AdvancedTextBox), new FrameworkPropertyMetadata(typeof(AdvancedTextBox)));
         }
 
+        public AdvancedTextBox()
+        {
+            _mustBeHidden = false;
+        }
+
         #endregion
 
         #region Overrides
@@ -86,13 +93,24 @@ namespace Synergy.WPF.Common.Controls
             _contentHost = GetTemplateChild(PART_ContentHost) as ScrollViewer;
 
             _contentHost.Padding = new Thickness(0);
+
+            if(_mustBeHidden)
+                _placeholder.Visibility = Visibility.Collapsed;
         }
 
         protected override void OnTextChanged(TextChangedEventArgs e)
         {
             base.OnTextChanged(e);
 
-            if (string.IsNullOrEmpty(Text))
+            var isEmpty = string.IsNullOrEmpty(Text);
+
+            if (_placeholder is null && !isEmpty)
+            {
+                _mustBeHidden = true;
+                return;
+            }
+
+            if (isEmpty)
             {
                 _placeholder.Visibility = Visibility.Visible;
             }
