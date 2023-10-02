@@ -76,13 +76,16 @@ namespace Synergy.WPF.Common.Controls
 
             var navitem = (NavItem)e.AddedItems[0];
 
-            if (Output is null)
-                throw new NullReferenceException();
-
             if (navitem.NavCommand != null)
+            {
                 navitem.NavCommand.Execute(Output);
-            else
-                Output.Navigate(navitem.NavLink);
+                return;
+            }
+
+            if (Output is null)
+                throw new NullReferenceException("Output is null!");
+
+            Output.Navigate(navitem.NavLink);
         }
     }
 }
