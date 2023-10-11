@@ -142,5 +142,12 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
+
+    <Style x:Key="ComboBoxStyle" TargetType="ComboBox"
+           BasedOn="{StaticResource ComboBox.Base}">
+        <Setter Property="Background" Value="{DynamicResource Gray700Brush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Gray900Brush}"/>
+    </Style>
     
 </ResourceDictionary>
