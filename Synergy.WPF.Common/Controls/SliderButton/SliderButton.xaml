@@ -9,14 +9,14 @@
 
                     <Border x:Name="PART_mainBorder"
                             BorderThickness="1"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <Grid
+                            CornerRadius="{TemplateBinding CornerRadius}"
                             MinHeight="{TemplateBinding MinHeight}"
                             MaxHeight="{TemplateBinding MaxHeight}"
                             MinWidth="{TemplateBinding MinWidth}"
                             MaxWidth="{TemplateBinding MaxWidth}"
                             Height="{TemplateBinding Height}"
                             Width="{TemplateBinding Width}">
+                        <Grid>
 
                             <Border x:Name="PART_OnBorder"
                                     CornerRadius="{TemplateBinding CornerRadius}"
