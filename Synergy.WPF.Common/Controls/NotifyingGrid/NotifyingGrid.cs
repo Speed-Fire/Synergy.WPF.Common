@@ -559,9 +559,11 @@ namespace Synergy.WPF.Common.Controls
 
         public static async Task<MessageBoxResult> ShowNotificationAsync(string gridName, string title, string message, MessageBoxButton buttons)
         {
-            NotifyingGrid grid = null;
 
-            _notifyingGrids[gridName].TryGetTarget(out grid);
+            _notifyingGrids[gridName].TryGetTarget(out NotifyingGrid grid);
+
+            if (grid is null)
+                return MessageBoxResult.None;
 
             return await grid.ShowNotificationAsync(title, message, buttons);
         }
