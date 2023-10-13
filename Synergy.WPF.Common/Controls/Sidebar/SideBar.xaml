@@ -17,7 +17,7 @@
 
                         <Path Grid.Row="0"
                               Stretch="Uniform"
-                              Margin="0,2"
+                              Margin="0,5"
                               VerticalAlignment="Top"
                               Height="25"
                               Width="25"
