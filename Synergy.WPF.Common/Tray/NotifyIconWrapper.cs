@@ -112,7 +112,7 @@ namespace Synergy.WPF.Common.Tray
 
             _notifyIcon = new()
             {
-                Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location),
+                Icon = Icon.ExtractAssociatedIcon(Assembly.GetEntryAssembly().Location),
                 Visible = true,
                 ContextMenuStrip = CreateContextMenu()
             };
