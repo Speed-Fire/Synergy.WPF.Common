@@ -500,12 +500,12 @@ namespace Synergy.WPF.Common.Controls
 
         private void MinutesTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            LostFocus_impl(_hoursTextBox, 59);
+            LostFocus_impl(_minutesTextBox, 59);
         }
 
         private void MinutesTextBox_LostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
         {
-            LostFocus_impl(_hoursTextBox, 59);
+            LostFocus_impl(_minutesTextBox, 59);
         }
 
         #endregion
