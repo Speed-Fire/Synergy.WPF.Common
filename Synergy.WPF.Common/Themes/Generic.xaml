@@ -4,6 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/TimePicker/TimePicker.xaml"/>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/Timer/Timer.xaml"/>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/SliderButton/SliderButton.xaml"/>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/ScrollBar/ScrollBar.xaml"/>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/NormalButton/NormalButton.xaml"/>

@@ -1,0 +1,359 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Synergy.WPF.Common.Controls">
+
+    <Style x:Key="ProgressBar.Base"
+               TargetType="Path">
+
+        <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        <Setter Property="Stroke"
+                    Value="#D8D8D8" />
+        <Setter Property="StrokeThickness"
+                    Value="10" />
+        <Setter Property="StrokeStartLineCap"
+                    Value="Flat" />
+        <Setter Property="StrokeEndLineCap"
+                    Value="Flat" />
+        <Setter Property="StrokeDashOffset"
+                    Value="0" />
+        <Setter Property="StrokeDashArray"
+                    Value="0.1" />
+        <Setter Property="Data"
+                    Value="M 0,62.5 A 62.5,62.5 0 1 1 125,62.5 A 62.5,62.5 0 1 1 0,62.5" />
+        <Setter Property="Margin"
+                    Value="0 0 0 0" />
+
+    </Style>
+
+    <Style x:Key="ProgressBar.Style"
+               TargetType="Path">
+
+        <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        <Setter Property="Stroke"
+                    Value="#FF7000" />
+        <Setter Property="StrokeThickness"
+                    Value="10" />
+        <Setter Property="StrokeStartLineCap"
+                    Value="Flat" />
+        <Setter Property="StrokeEndLineCap"
+                    Value="Flat" />
+        <Setter Property="StrokeDashOffset"
+                    Value="0" />
+        <Setter Property="StrokeDashArray"
+                    Value="100" />
+        <Setter Property="Data"
+                    Value="M 0,62.5 A 62.5,62.5 0 1 1 125,62.5 A 62.5,62.5 0 1 1 0,62.5" />
+        <Setter Property="Opacity"
+                    Value="1" />
+
+    </Style>
+
+    <Style x:Key="TimerStyle.Base" TargetType="local:Timer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Timer">
+
+                    <ControlTemplate.Resources>
+
+                        <Style TargetType="TextBox">
+                            <Setter Property="MinWidth" Value="40"/>
+                            <Setter Property="Margin" Value="0 5 0 5"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="30"/>
+                        </Style>
+
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="5 2.2 5 7.5"/>
+                            <Setter Property="FontSize" Value="30"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Text" Value=":"/>
+                        </Style>
+
+                        <Style TargetType="Button">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+
+                                    <ControlTemplate TargetType="Button">
+                                        <Border
+                                            Opacity="{TemplateBinding Opacity}"
+                                            Background="Transparent"
+                                            Padding="2">
+
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                        <Style x:Key="TimerButtonStyle" TargetType="Button">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+
+                                    <ControlTemplate TargetType="Button">
+                                        <Border
+                                            CornerRadius="8"
+                                            Opacity="{TemplateBinding Opacity}"
+                                            Background="{TemplateBinding Background}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                            Padding="2">
+
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        
+                    </ControlTemplate.Resources>
+
+                    <Border Background="{TemplateBinding OuterBorderBackground}"
+                            BorderBrush="{TemplateBinding OuterBorderBrush}"
+                            BorderThickness="{TemplateBinding OuterBorderThickness}"
+                            CornerRadius="80"
+                            Padding="10 10 5 5" ClipToBounds="False"
+                                                >
+                        
+                        <Grid HorizontalAlignment="Center"
+                              VerticalAlignment="Center">
+
+                            <Grid VerticalAlignment="Center"
+                                  HorizontalAlignment="Center">
+
+                                <Path Style="{StaticResource ProgressBar.Base}"/>
+
+                                <Grid VerticalAlignment="Center"
+                                      HorizontalAlignment="Center">
+
+
+                                    <Path x:Name="CircularProgressBar"
+                                          Style="{StaticResource ProgressBar.Style}"
+                                          StrokeDashOffset="{Binding ElementName=PART_ProgressBar,
+                                                                     Path=Value}">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform Angle="90" />
+                                                <TranslateTransform X="125" Y="0"/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+
+                                </Grid>
+
+                            </Grid>
+
+                            <Grid Margin="0 0 0.75 0"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!--#region Buttons -->
+
+                                    <Button
+                                        x:Name="PART_IncMinutesButton"
+                                        Grid.Column="0"
+                                        Grid.Row="0">
+                                        <Polygon
+                                            Points="0,10,15,0,30,10"
+                                            Fill="{TemplateBinding ButtonForeground}"/>
+                                    </Button>
+
+                                    <Button
+                                        x:Name="PART_DecMinutesButton"
+                                        Grid.Column="0"
+                                        Grid.Row="2">
+                                        <Polygon
+                                            Points="0,0,15,10,30,0"
+                                            Fill="{TemplateBinding ButtonForeground}"/>
+                                    </Button>
+
+                                    <Button
+                                        x:Name="PART_IncSecondsButton"
+                                        Grid.Column="2"
+                                        Grid.Row="0">
+                                        <Polygon
+                                            Points="0,10,15,0,30,10"
+                                            Fill="{TemplateBinding ButtonForeground}"/>
+                                    </Button>
+
+                                    <Button
+                                        x:Name="PART_DecSecondsButton"
+                                        Grid.Column="2"
+                                        Grid.Row="2">
+                                        <Polygon
+                                            Points="0,0,15,10,30,0"
+                                            Fill="{TemplateBinding ButtonForeground}"/>
+                                    </Button>
+
+                                    <!--#endregion-->
+
+                                    <!--#region TextBoxes -->
+
+                                    <TextBox
+                                        x:Name="PART_MinutesTextBox"
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        Foreground="{TemplateBinding TextForeground}"
+                                        Background="{TemplateBinding TextBackground}">
+                                        <TextBox.Resources>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="CornerRadius" Value="15"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
+
+                                    <TextBox
+                                        x:Name="PART_SecondsTextBox"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        Foreground="{TemplateBinding TextForeground}"
+                                        Background="{TemplateBinding TextBackground}">
+                                        <TextBox.Resources>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="CornerRadius" Value="15"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
+
+                                    <!--#endregion-->
+
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Foreground="{TemplateBinding TextForeground}"/>
+                                </Grid>
+
+                                <ProgressBar x:Name="PART_ProgressBar"
+                                             Grid.Row="1"
+                                             Margin="0 5 0 5"
+                                             Maximum="100"
+                                             Minimum="0"
+                                             Height="0"/>
+
+                                <Grid x:Name="ControlPanel" Grid.Row="2"
+                                      HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button
+                                        x:Name="PART_StartButton"
+                                        Grid.Column="0"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{TemplateBinding ButtonForeground}"
+                                        Style="{StaticResource TimerButtonStyle}">
+
+                                        <Path Fill="Snow"
+                                              Stretch="Fill"
+                                              Data="M -5,-5 -5,5 5,0 z"/>
+
+                                    </Button>
+
+                                    <Button
+                                        x:Name="PART_StopButton"
+                                        Grid.Column="2"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{TemplateBinding ButtonForeground}"
+                                        Style="{StaticResource TimerButtonStyle}">
+
+                                        <Path Fill="Snow"
+                                              Stretch="Fill"
+                                              Data="M -5,-5 -5,5 5,5 5,-5 z"/>
+
+                                    </Button>
+
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="ManipulationMode" Value="Programatic">
+                            <Setter TargetName="PART_IncMinutesButton" Property="IsEnabled" Value="False"/>
+                            <Setter TargetName="PART_IncMinutesButton" Property="Visibility" Value="Collapsed"/>
+
+                            <Setter TargetName="PART_IncSecondsButton" Property="IsEnabled" Value="False"/>
+                            <Setter TargetName="PART_IncSecondsButton" Property="Visibility" Value="Collapsed"/>
+
+                            <Setter TargetName="PART_DecMinutesButton" Property="IsEnabled" Value="False"/>
+                            <Setter TargetName="PART_DecMinutesButton" Property="Visibility" Value="Collapsed"/>
+
+                            <Setter TargetName="PART_DecSecondsButton" Property="IsEnabled" Value="False"/>
+                            <Setter TargetName="PART_DecSecondsButton" Property="Visibility" Value="Collapsed"/>
+
+                            <Setter TargetName="PART_MinutesTextBox" Property="TextBox.IsReadOnly" Value="True"/>
+                            <Setter TargetName="PART_SecondsTextBox" Property="TextBox.IsReadOnly" Value="True"/>
+
+                            <Setter TargetName="ControlPanel" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

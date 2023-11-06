@@ -94,6 +94,19 @@
 
     </Style>
 
+    <Style x:Key="TimerStyle" TargetType="controls:Timer"
+           BasedOn="{StaticResource TimerStyle.Base}">
+
+        <Setter Property="TextForeground" Value="{DynamicResource TimePicker.TextForeground}"/>
+        <Setter Property="TextBackground" Value="{DynamicResource TimePicker.TextBackground}"/>
+        <Setter Property="OuterBorderBackground" Value="{DynamicResource TimePicker.Background}"/>
+        <Setter Property="ButtonForeground" Value="{DynamicResource TertiaryBrush}"/>
+        <Setter Property="OuterBorderBrush" Value="{DynamicResource ListView.Background}"/>
+        <Setter Property="OuterBorderThickness" Value="2"/>
+        <Setter Property="OuterBorderCornerRadius" Value="120"/>
+
+    </Style>
+    
     <Style x:Key="SliderButtonStyle" TargetType="controls:SliderButton"
            BasedOn="{StaticResource SliderButton.Base}">
 
