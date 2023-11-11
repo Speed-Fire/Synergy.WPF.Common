@@ -13,6 +13,12 @@ namespace Synergy.WPF.Common.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if(parameter is not null && parameter is string str)
+            {
+                if(str.Equals("Invert"))
+					return !(bool)value ? Visibility.Visible : Visibility.Collapsed;
+			}
+
             return (bool)value ? Visibility.Visible : Visibility.Collapsed;
         }
 
