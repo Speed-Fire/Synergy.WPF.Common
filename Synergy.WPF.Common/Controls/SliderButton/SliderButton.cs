@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
@@ -13,9 +8,22 @@ namespace Synergy.WPF.Common.Controls
     {
         #region Properties
 
-        #region OnLabel
+        #region ButtonWidth
 
-        public static DependencyProperty OnLabelProperty =
+        public static DependencyProperty ButtonWidthProperty =
+            DependencyProperty.Register("ButtonWidth", typeof(double), typeof(SliderButton), new PropertyMetadata(10d));
+
+        public double ButtonWidth
+        {
+            get => (double)GetValue(ButtonWidthProperty);
+            set => SetValue(ButtonWidthProperty, value);
+        }
+
+		#endregion
+
+		#region OnLabel
+
+		public static DependencyProperty OnLabelProperty =
             DependencyProperty.Register("OnLabel", typeof(string), typeof(SliderButton), new PropertyMetadata(""));
 
         public string OnLabel
