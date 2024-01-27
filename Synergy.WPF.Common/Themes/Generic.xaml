@@ -12,6 +12,7 @@
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/AdvancedTextBox/AdvancedTextBox.xaml"/>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/GroupBox/GroupBox.xaml"/>
         <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/ComboBox/ComboBox.xaml"/>
+        <ResourceDictionary Source="/Synergy.WPF.Common;component/Controls/SearchBox/SearchBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
