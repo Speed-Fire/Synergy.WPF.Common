@@ -5,6 +5,11 @@
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Title>Synergy WPF common</Title>
+	<Authors>Vladislav Sidorovich</Authors>
+	<Description>Common controls, converters, styles and other for WPF.</Description>
+	<RepositoryUrl>https://github.com/Speed-Fire/Synergy.WPF.Common</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
