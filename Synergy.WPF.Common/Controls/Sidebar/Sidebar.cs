@@ -28,7 +28,7 @@ namespace Synergy.WPF.Common.Controls
             DependencyProperty.Register("TitleIcon", typeof(Geometry), typeof(Sidebar), new PropertyMetadata(null));
 
         public static readonly DependencyProperty TitleIconColorProperty =
-            DependencyProperty.Register("TitleIconColor", typeof(SolidColorBrush), typeof(Sidebar), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(42, 132, 241))));
+            DependencyProperty.Register("TitleIconColor", typeof(Brush), typeof(Sidebar), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(42, 132, 241))));
 
         public static readonly DependencyProperty NavItemsProperty =
             DependencyProperty.Register("NavItems", typeof(IEnumerable<NavItem>), typeof(Sidebar), new PropertyMetadata(new List<NavItem>()));
@@ -43,9 +43,9 @@ namespace Synergy.WPF.Common.Controls
         }
 
 
-        public SolidColorBrush TitleIconColor
+        public Brush TitleIconColor
         {
-            get { return (SolidColorBrush)GetValue(TitleIconColorProperty); }
+            get { return (Brush)GetValue(TitleIconColorProperty); }
             set { SetValue(TitleIconColorProperty, value); }
         }
 
@@ -71,7 +71,7 @@ namespace Synergy.WPF.Common.Controls
             if (e.AddedItems.Count == 0)
                 return;
 
-            if (!(e.AddedItems[0] is NavItem))
+            if (e.AddedItems[0] is not NavItem)
                 throw new Exception();
 
             var navitem = (NavItem)e.AddedItems[0];

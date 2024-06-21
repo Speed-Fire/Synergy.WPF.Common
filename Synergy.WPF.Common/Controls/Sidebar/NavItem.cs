@@ -61,13 +61,13 @@ namespace Synergy.WPF.Common.Controls
             DependencyProperty.Register("Icon", typeof(Geometry), typeof(NavItem), new PropertyMetadata(null));
 
         public static readonly DependencyProperty IconColorProperty =
-    DependencyProperty.Register("IconColor", typeof(SolidColorBrush), typeof(NavItem), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(123, 135, 146))));
+    DependencyProperty.Register("IconColor", typeof(Brush), typeof(NavItem), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(123, 135, 146))));
 
         public static readonly DependencyProperty HoveredIconColorProperty =
-            DependencyProperty.Register("HoveredIconColor", typeof(SolidColorBrush), typeof(NavItem), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(42, 132, 241))));
+            DependencyProperty.Register("HoveredIconColor", typeof(Brush), typeof(NavItem), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(42, 132, 241))));
 
         public static readonly DependencyProperty SelectedIconColorProperty =
-            DependencyProperty.Register("SelectedIconColor", typeof(SolidColorBrush), typeof(NavItem), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(42, 132, 241))));
+            DependencyProperty.Register("SelectedIconColor", typeof(Brush), typeof(NavItem), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(42, 132, 241))));
 
 
         public Uri NavLink
@@ -92,25 +92,25 @@ namespace Synergy.WPF.Common.Controls
 
 
 
-        public SolidColorBrush IconColor
+        public Brush IconColor
         {
-            get { return (SolidColorBrush)GetValue(IconColorProperty); }
+            get { return (Brush)GetValue(IconColorProperty); }
             set { SetValue(IconColorProperty, value); }
         }
 
 
 
-        public SolidColorBrush HoveredIconColor
+        public Brush HoveredIconColor
         {
-            get { return (SolidColorBrush)GetValue(HoveredIconColorProperty); }
+            get { return (Brush)GetValue(HoveredIconColorProperty); }
             set { SetValue(HoveredIconColorProperty, value); }
         }
 
 
 
-        public SolidColorBrush SelectedIconColor
+        public Brush SelectedIconColor
         {
-            get { return (SolidColorBrush)GetValue(SelectedIconColorProperty); }
+            get { return (Brush)GetValue(SelectedIconColorProperty); }
             set { SetValue(SelectedIconColorProperty, value); }
         }
 
