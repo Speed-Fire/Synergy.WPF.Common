@@ -69,7 +69,7 @@ namespace Synergy.WPF.Common.Controls
 
 		#region ManipulationMode
 
-		public static DependencyProperty ManipulationModeProperty=
+		public static readonly DependencyProperty ManipulationModeProperty=
 			DependencyProperty.Register("ManipulationMode", typeof(ManipulationMode), typeof(Timer), new PropertyMetadata(ManipulationMode.Manual));
 
 		public ManipulationMode ManipulationMode

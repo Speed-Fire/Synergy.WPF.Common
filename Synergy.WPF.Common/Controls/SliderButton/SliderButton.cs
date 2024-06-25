@@ -10,7 +10,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region ButtonWidth
 
-        public static DependencyProperty ButtonWidthProperty =
+        public static readonly DependencyProperty ButtonWidthProperty =
             DependencyProperty.Register("ButtonWidth", typeof(double), typeof(SliderButton), new PropertyMetadata(10d));
 
         public double ButtonWidth
@@ -23,7 +23,7 @@ namespace Synergy.WPF.Common.Controls
 
 		#region OnLabel
 
-		public static DependencyProperty OnLabelProperty =
+		public static readonly DependencyProperty OnLabelProperty =
             DependencyProperty.Register("OnLabel", typeof(string), typeof(SliderButton), new PropertyMetadata(""));
 
         public string OnLabel
@@ -36,7 +36,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region OffLabel
 
-        public static DependencyProperty OffLabelProperty =
+        public static readonly DependencyProperty OffLabelProperty =
             DependencyProperty.Register("OffLabel", typeof(string), typeof(SliderButton), new PropertyMetadata(""));
 
         public string OffLabel
@@ -49,7 +49,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region OnColor
 
-        public static DependencyProperty OnColorProperty =
+        public static readonly DependencyProperty OnColorProperty =
             DependencyProperty.Register("OnColor", typeof(Brush), typeof(SliderButton), new PropertyMetadata(Brushes.LightGreen));
 
         public Brush OnColor
@@ -62,7 +62,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region OffColor
 
-        public static DependencyProperty OffColorProperty =
+        public static readonly DependencyProperty OffColorProperty =
             DependencyProperty.Register("OffColor", typeof(Brush), typeof(SliderButton), new PropertyMetadata(Brushes.Red));
 
         public Brush OffColor
@@ -75,7 +75,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region CornerRadius
 
-        public static DependencyProperty CornerRadiusProperty =
+        public static readonly DependencyProperty CornerRadiusProperty =
             DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(SliderButton), new PropertyMetadata(new CornerRadius()));
 
         public CornerRadius CornerRadius

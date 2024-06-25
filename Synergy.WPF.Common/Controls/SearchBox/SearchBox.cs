@@ -34,7 +34,7 @@ namespace Synergy.WPF.Common.Controls
 
 		#region Text
 
-		public static DependencyProperty TextProperty =
+		public static readonly DependencyProperty TextProperty =
 			DependencyProperty.Register("Text", typeof(string), typeof(SearchBox),
 				new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
@@ -48,7 +48,7 @@ namespace Synergy.WPF.Common.Controls
 
 		#region GapSize
 
-		public static DependencyProperty GapSizeProperty =
+		public static readonly DependencyProperty GapSizeProperty =
 			DependencyProperty.Register("GapSize", typeof(int), typeof(SearchBox), new PropertyMetadata(5, OnGapSizeChanged));
 
 		public int GapSize
@@ -76,7 +76,7 @@ namespace Synergy.WPF.Common.Controls
 
 		#region ItemsSource
 
-		public static DependencyProperty ItemsSourceProperty =
+		public static readonly DependencyProperty ItemsSourceProperty =
 			DependencyProperty.Register("ItemsSource", typeof(IEnumerable), typeof(SearchBox), new PropertyMetadata(default, OnItemsSourceChanged));
 
 		public IEnumerable ItemsSource
@@ -114,7 +114,7 @@ namespace Synergy.WPF.Common.Controls
 
 		#region TextBoxStyle
 
-		public static DependencyProperty TextBoxStyleProperty =
+		public static readonly DependencyProperty TextBoxStyleProperty =
 			DependencyProperty.Register("TextBoxStyle", typeof(Style), typeof(SearchBox), new PropertyMetadata(default, OnTextBoxStyleChanged));
 
 		public Style TextBoxStyle
@@ -141,7 +141,7 @@ namespace Synergy.WPF.Common.Controls
 
 		#region Regex
 
-		public static DependencyProperty RegexProperty =
+		public static readonly DependencyProperty RegexProperty =
 			DependencyProperty.Register("Regex", typeof(string), typeof(SearchBox), new PropertyMetadata(default));
 
 		public string Regex

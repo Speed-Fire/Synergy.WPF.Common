@@ -29,7 +29,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region PlaceholderBrush
 
-        public static DependencyProperty PlaceholderBrushProperty =
+        public static readonly DependencyProperty PlaceholderBrushProperty =
             DependencyProperty.Register("PlaceholderBrush", typeof(Brush), typeof(AdvancedTextBox), new PropertyMetadata(new SolidColorBrush(Colors.Gray)));
 
         public Brush PlaceholderBrush
@@ -42,7 +42,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region Placeholder
 
-        public static DependencyProperty PlaceholderProperty =
+        public static readonly DependencyProperty PlaceholderProperty =
             DependencyProperty.Register("Placeholder", typeof(string), typeof(AdvancedTextBox), new PropertyMetadata(null));
 
         public string Placeholder
@@ -55,7 +55,7 @@ namespace Synergy.WPF.Common.Controls
 
         #region CornerRadius
 
-        public static DependencyProperty CornerRadiusProperty =
+        public static readonly DependencyProperty CornerRadiusProperty =
             DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(AdvancedTextBox), new PropertyMetadata(new CornerRadius(0)));
 
         public CornerRadius CornerRadius
