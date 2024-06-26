@@ -20,7 +20,13 @@
                         CornerRadius="{TemplateBinding CornerRadius}"
                         HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                         VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                        Width="{TemplateBinding Width}"
+                        MaxWidth="{TemplateBinding MaxWidth}"
+                        MinWidth="{TemplateBinding MinWidth}"
+                        Height="{TemplateBinding Height}"
+                        MaxHeight="{TemplateBinding MaxHeight}"
+                        MinHeight="{TemplateBinding MinHeight}">
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
