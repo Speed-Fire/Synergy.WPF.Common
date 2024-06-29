@@ -16,7 +16,7 @@
             <Border x:Name="Border"
                     Grid.ColumnSpan="2"
                     CornerRadius="2"
-                    BorderThickness="1"
+                    BorderThickness="{TemplateBinding BorderThickness}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     Background="{TemplateBinding Background}"/>
             
