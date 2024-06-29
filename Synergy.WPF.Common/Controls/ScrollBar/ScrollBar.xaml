@@ -4,7 +4,7 @@
 
     <convs:ScrollLimitConverter x:Key="scrollLimitConv"/>
 
-    <Style x:Key="ScrollBar.Base"
+    <Style x:Key="Synergy.Styles.ScrollBar.Base"
            TargetType="ScrollBar">
 
         <Setter Property="SnapsToDevicePixels"
@@ -17,20 +17,20 @@
             <Trigger Property="Orientation" Value="Vertical">
 
                 <Setter Property="Width" Value="5"/>
-                <Setter Property="Template" Value="{DynamicResource ScrollBar.Base.Vertical}"/>
+                <Setter Property="Template" Value="{DynamicResource Synergy.Templates.ScrollBar.Base.Vertical}"/>
 
             </Trigger>
 
             <Trigger Property="Orientation" Value="Horizontal">
                 <Setter Property="Height" Value="5"/>
-                <Setter Property="Template" Value="{DynamicResource ScrollBar.Base.Horizontal}"/>
+                <Setter Property="Template" Value="{DynamicResource Synergy.Templates.ScrollBar.Base.Horizontal}"/>
             </Trigger>
             
         </Style.Triggers>
         
     </Style>
 
-    <ControlTemplate x:Key="ScrollBar.Base.Vertical"
+    <ControlTemplate x:Key="Synergy.Templates.ScrollBar.Base.Vertical"
                      TargetType="ScrollBar">
         <Grid>
 
@@ -52,19 +52,19 @@
 
                 <Track.DecreaseRepeatButton>
                     <RepeatButton
-                        Style="{DynamicResource ScrollBar.Base.Track}"
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Track}"
                         Command="ScrollBar.PageUpCommand"/>
                 </Track.DecreaseRepeatButton>
 
                 <Track.Thumb>
                     <Thumb
                         Background="{TemplateBinding Foreground}"
-                        Style="{DynamicResource ScrollBar.Base.Thumb}"/>
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Thumb}"/>
                 </Track.Thumb>
 
                 <Track.IncreaseRepeatButton>
                     <RepeatButton
-                        Style="{DynamicResource ScrollBar.Base.Track}"
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Track}"
                         Command="ScrollBar.PageDownCommand"/>
                 </Track.IncreaseRepeatButton>
             </Track>
@@ -73,7 +73,7 @@
 
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ScrollBar.Base.Horizontal"
+    <ControlTemplate x:Key="Synergy.Templates.ScrollBar.Base.Horizontal"
                      TargetType="ScrollBar">
         <Grid>
 
@@ -95,19 +95,19 @@
 
                 <Track.DecreaseRepeatButton>
                     <RepeatButton
-                        Style="{DynamicResource ScrollBar.Base.Track}"
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Track}"
                         Command="ScrollBar.PageUpCommand"/>
                 </Track.DecreaseRepeatButton>
 
                 <Track.Thumb>
                     <Thumb
                         Background="{TemplateBinding Foreground}"
-                        Style="{DynamicResource ScrollBar.Base.Thumb}"/>
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Thumb}"/>
                 </Track.Thumb>
 
                 <Track.IncreaseRepeatButton>
                     <RepeatButton
-                        Style="{DynamicResource ScrollBar.Base.Track}"
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Track}"
                         Command="ScrollBar.PageDownCommand"/>
                 </Track.IncreaseRepeatButton>
             </Track>
@@ -115,8 +115,8 @@
         </Grid>
 
     </ControlTemplate>
-    
-    <ControlTemplate x:Key="ScrollBar.Base.Vertical.Buttons"
+
+    <ControlTemplate x:Key="Synergy.Templates.ScrollBar.Base.Vertical.Buttons"
                      TargetType="ScrollBar">
         <Grid>
 
@@ -142,19 +142,19 @@
 
                 <Track.DecreaseRepeatButton>
                     <RepeatButton
-                        Style="{DynamicResource ScrollBar.Base.Track}"
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Track}"
                         Command="ScrollBar.PageUpCommand"/>
                 </Track.DecreaseRepeatButton>
 
                 <Track.Thumb>
                     <Thumb
                         Background="{TemplateBinding Foreground}"
-                        Style="{DynamicResource ScrollBar.Base.Thumb}"/>
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Thumb}"/>
                 </Track.Thumb>
 
                 <Track.IncreaseRepeatButton>
                     <RepeatButton
-                        Style="{DynamicResource ScrollBar.Base.Track}"
+                        Style="{DynamicResource Synergy.Styles.ScrollBar.Base.Track}"
                         Command="ScrollBar.PageDownCommand"/>
                 </Track.IncreaseRepeatButton>
             </Track>
@@ -195,7 +195,7 @@
 
     </ControlTemplate>
 
-    <Style x:Key="ScrollBar.Base.Thumb" TargetType="Thumb">
+    <Style x:Key="Synergy.Styles.ScrollBar.Base.Thumb" TargetType="Thumb">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
 
         <Setter Property="Template">
@@ -222,7 +222,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ScrollBar.Base.Track" TargetType="{x:Type RepeatButton}">
+    <Style x:Key="Synergy.Styles.ScrollBar.Base.Track" TargetType="{x:Type RepeatButton}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="IsTabStop" Value="False"/>

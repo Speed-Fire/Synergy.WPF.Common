@@ -56,7 +56,7 @@
     </ControlTemplate>
 
     
-    <Style x:Key="ComboBox.Base"
+    <Style x:Key="Synergy.Styles.ComboBox.Base"
        TargetType="{x:Type ComboBox}">
         
         <Setter Property="SnapsToDevicePixels"

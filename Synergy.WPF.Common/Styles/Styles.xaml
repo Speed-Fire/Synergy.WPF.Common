@@ -2,13 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Synergy.WPF.Common.Controls">
 
-    <Style x:Key="ScrollBarStyle" TargetType="ScrollBar"
-           BasedOn="{StaticResource ScrollBar.Base}">
+    <Style x:Key="Synergy.Styles.ScrollBar" TargetType="ScrollBar"
+           BasedOn="{StaticResource Synergy.Styles.ScrollBar.Base}">
         <Setter Property="Foreground" Value="{DynamicResource ScrollBar.Foreground}"/>
     </Style>
 
-    <Style x:Key="NormalButtonStyle" TargetType="controls:NormalButton"
-           BasedOn="{StaticResource NormalButtonStyle.Base}">
+    <Style x:Key="Synergy.Styles.NormalButton" TargetType="controls:NormalButton"
+           BasedOn="{StaticResource Synergy.Styles.NormalButton.Base}">
         <Setter Property="MinHeight" Value="20"/>
         <Setter Property="MinWidth" Value="44"/>
 
@@ -16,73 +16,74 @@
         <Setter Property="Background" Value="{DynamicResource NormalButton.Background}" />
     </Style>
 
-    <Style x:Key="Sidebar" TargetType="controls:Sidebar">
+    <Style x:Key="Synergy.Styles.Sidebar" TargetType="controls:Sidebar">
         <Setter Property="Background" Value="{DynamicResource SidebarBackground}"/>
     </Style>
 
-    <Style x:Key="FrameStyle" TargetType="Frame">
+    <Style x:Key="Synergy.Styles.Frame" TargetType="Frame">
         <Setter Property="Background" Value="{DynamicResource FrameBackground}"/>
     </Style>
 
-    <Style x:Key="ThemedNavItemStyle" BasedOn="{StaticResource NavItemStyle}" TargetType="controls:NavItem">
+    <Style x:Key="Synergy.Styles.NavItem" BasedOn="{StaticResource Synergy.Styles.NavItem.Base}"
+           TargetType="controls:NavItem">
         <Setter Property="IconColor" Value="{DynamicResource SidebarItemColor}"/>
         <Setter Property="HoveredIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
         <Setter Property="SelectedIconColor" Value="{DynamicResource SidebarSlcItemColor}"/>
     </Style>
 
-    <Style x:Key="NotifyingGridStyle" TargetType="controls:NotifyingGrid">
+    <Style x:Key="Synergy.Styles.NotifyingGrid" TargetType="controls:NotifyingGrid">
         <Setter Property="NtfBackground" Value="{DynamicResource NotifyingGrid.Background}"/>
         <Setter Property="NtfForeground" Value="{DynamicResource NotifyingGrid.Foreground}"/>
     </Style>
 
-    <Style x:Key="ListBoxStyle" TargetType="ListBox">
+    <Style x:Key="Synergy.Styles.ListBox" TargetType="ListBox">
         <Setter Property="Background" Value="{DynamicResource ListView.Background}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
 
         <Style.Resources>
             <Style TargetType="ScrollBar"
-                   BasedOn="{StaticResource ScrollBarStyle}"/>
+                   BasedOn="{StaticResource Synergy.Styles.ScrollBar}"/>
         </Style.Resources>
     </Style>
 
-    <Style x:Key="ListViewStyle" TargetType="ListView">
+    <Style x:Key="Synergy.Styles.ListView" TargetType="ListView">
         <Setter Property="Background" Value="{DynamicResource ListView.Background}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
     </Style>
 
-    <Style x:Key="ListViewStyle.NormalButton" TargetType="controls:NormalButton"
-           BasedOn="{StaticResource NormalButtonStyle}">
+    <Style x:Key="Synergy.Styles.ListView.NormalButton" TargetType="controls:NormalButton"
+           BasedOn="{StaticResource Synergy.Styles.NormalButton}">
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Background" Value="{DynamicResource ListView.Background}"/>
         <Setter Property="MinHeight" Value="20"/>
     </Style>
 
-    <Style x:Key="ListViewStyle.TextBlock" TargetType="TextBlock">
+    <Style x:Key="Synergy.Styles.ListView.TextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="TextAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+    <Style x:Key="Synergy.Styles.TextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
 
-    <Style x:Key="TextBoxStyle" TargetType="TextBox">
+    <Style x:Key="Synergy.Styles.TextBox" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
 
-    <Style x:Key="TextBoxStyle.Transparent" TargetType="TextBox">
+    <Style x:Key="Synergy.Styles.TextBox.Transparent" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
-    <Style x:Key="TimePickerStyle" TargetType="controls:TimePicker"
-           BasedOn="{StaticResource TimePickerStyle.Base}">
+    <Style x:Key="Synergy.Styles.TimePicker" TargetType="controls:TimePicker"
+           BasedOn="{StaticResource Synergy.Styles.TimePicker.Base}">
 
         <Setter Property="TextForeground" Value="{DynamicResource TimePicker.TextForeground}"/>
         <Setter Property="TextBackground" Value="{DynamicResource TimePicker.TextBackground}"/>
@@ -94,8 +95,8 @@
 
     </Style>
 
-    <Style x:Key="TimerStyle" TargetType="controls:Timer"
-           BasedOn="{StaticResource TimerStyle.Base}">
+    <Style x:Key="Synergy.Styles.Timer" TargetType="controls:Timer"
+           BasedOn="{StaticResource Synergy.Styles.Timer.Base}">
 
         <Setter Property="TextForeground" Value="{DynamicResource TimePicker.TextForeground}"/>
         <Setter Property="TextBackground" Value="{DynamicResource TimePicker.TextBackground}"/>
@@ -106,9 +107,9 @@
         <Setter Property="OuterBorderCornerRadius" Value="120"/>
 
     </Style>
-    
-    <Style x:Key="SliderButtonStyle" TargetType="controls:SliderButton"
-           BasedOn="{StaticResource SliderButton.Base}">
+
+    <Style x:Key="Synergy.Styles.SliderButton" TargetType="controls:SliderButton"
+           BasedOn="{StaticResource Synergy.Styles.SliderButton.Base}">
 
         <Setter Property="CornerRadius" Value="10"/>
 
@@ -123,13 +124,13 @@
 
     </Style>
 
-    <Style x:Key="ScrollViewerStyle" TargetType="ScrollViewer">
+    <Style x:Key="Synergy.Styles.ScrollViewer" TargetType="ScrollViewer">
         <Style.Resources>
-            <Style TargetType="ScrollBar" BasedOn="{StaticResource ScrollBarStyle}"/>
+            <Style TargetType="ScrollBar" BasedOn="{StaticResource Synergy.Styles.ScrollBar}"/>
         </Style.Resources>
     </Style>
 
-    <Style x:Key="AdvancedTextBoxStyle" TargetType="controls:AdvancedTextBox">
+    <Style x:Key="Synergy.Styles.AdvancedTextBox" TargetType="controls:AdvancedTextBox">
         <Setter Property="Background" Value="{DynamicResource Gray500Brush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Gray900Brush}"/>
@@ -142,7 +143,7 @@
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
 
-    <Style x:Key="BorderStyle.TextBlock" TargetType="Border">
+    <Style x:Key="Synergy.Styles.Border.TextBlock" TargetType="Border">
         <Setter Property="Background" Value="{DynamicResource Gray500Brush}"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Gray900Brush}"/>
@@ -151,13 +152,13 @@
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
     </Style>
 
-    <Style x:Key="TextBlockStyle.Bordered" TargetType="TextBlock">
+    <Style x:Key="Synergy.Styles.TextBlock.Bordered" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
 
-    <Style x:Key="ComboBoxStyle" TargetType="ComboBox"
-           BasedOn="{StaticResource ComboBox.Base}">
+    <Style x:Key="Synergy.Styles.ComboBox" TargetType="ComboBox"
+           BasedOn="{StaticResource Synergy.Styles.ComboBox.Base}">
         <Setter Property="Background" Value="{DynamicResource Gray700Brush}"/>
         <Setter Property="Foreground" Value="{DynamicResource Text.Foreground}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource Gray900Brush}"/>

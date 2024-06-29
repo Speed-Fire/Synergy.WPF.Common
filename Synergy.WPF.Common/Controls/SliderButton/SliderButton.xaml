@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Synergy.WPF.Common.Controls">
 
-    <Style x:Key="SliderButton.Base" TargetType="local:SliderButton">
+    <Style x:Key="Synergy.Styles.SliderButton.Base" TargetType="local:SliderButton">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SliderButton">
@@ -97,8 +97,8 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SliderButton.Round" TargetType="local:SliderButton"
-           BasedOn="{StaticResource SliderButton.Base}">
+    <Style x:Key="Synergy.Styles.SliderButton.Round" TargetType="local:SliderButton"
+           BasedOn="{StaticResource Synergy.Styles.SliderButton.Base}">
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
     

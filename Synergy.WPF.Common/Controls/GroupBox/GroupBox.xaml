@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
-    
-    <Style x:Key="GroupBoxStyle.SingleBorder"
+
+    <Style x:Key="Synergy.Styles.GroupBox.SingleBorder"
            TargetType="GroupBox">
 
         <Setter Property="BorderBrush" Value="#D5DFE5" />

@@ -37,7 +37,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="NavItemStyle" TargetType="local:NavItem">
+    <Style x:Key="Synergy.Styles.NavItem.Base" TargetType="local:NavItem">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Margin" Value="3"/>

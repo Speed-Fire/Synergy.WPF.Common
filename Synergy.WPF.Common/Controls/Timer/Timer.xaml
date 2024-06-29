@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Synergy.WPF.Common.Controls">
 
-    <Style x:Key="ProgressBar.Base"
+    <Style x:Key="Synergy.Styles.Timer.ProgressBar.Base"
                TargetType="Path">
 
         <Setter Property="HorizontalAlignment"
@@ -28,7 +28,7 @@
 
     </Style>
 
-    <Style x:Key="ProgressBar.Style"
+    <Style x:Key="Synergy.Styles.Timer.ProgressBar"
                TargetType="Path">
 
         <Setter Property="HorizontalAlignment"
@@ -54,7 +54,7 @@
 
     </Style>
 
-    <Style x:Key="TimerStyle.Base" TargetType="local:Timer">
+    <Style x:Key="Synergy.Styles.Timer.Base" TargetType="local:Timer">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:Timer">
@@ -159,14 +159,14 @@
                             <Grid VerticalAlignment="Center"
                                   HorizontalAlignment="Center">
 
-                                <Path Style="{StaticResource ProgressBar.Base}"/>
+                                <Path Style="{StaticResource Synergy.Styles.Timer.ProgressBar.Base}"/>
 
                                 <Grid VerticalAlignment="Center"
                                       HorizontalAlignment="Center">
 
 
                                     <Path x:Name="CircularProgressBar"
-                                          Style="{StaticResource ProgressBar.Style}"
+                                          Style="{StaticResource Synergy.Styles.Timer.ProgressBar}"
                                           StrokeDashOffset="{Binding ElementName=PART_ProgressBar,
                                                                      Path=Value}">
                                         <Path.RenderTransform>
