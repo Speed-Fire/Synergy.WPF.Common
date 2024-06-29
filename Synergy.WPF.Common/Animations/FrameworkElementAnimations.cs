@@ -48,7 +48,7 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
 		/// <param name="firstLoad">Indicates if this is the first load</param>
 		/// <returns></returns>
-		public static async Task SlideAndFadeInAsync(this FrameworkElement element, AnimationSlideInDirection direction, bool firstLoad, float seconds = 0.3f, bool keepMargin = true, int size = 0)
+		public static async Task SlideAndFadeInAsync(this FrameworkElement element, AnimationSlideInDirection direction, bool firstLoad, float seconds = 0.3f, bool keepMargin = true, int size = 0, bool fading = true)
 		{
 			// Create the storyboard
 			var sb = new Storyboard();
@@ -74,7 +74,8 @@ namespace Synergy.WPF.Common.Animations
 					break;
 			}
 			// Add fade in animation
-			sb.AddFadeIn(seconds);
+			if (fading)
+				sb.AddFadeIn(seconds);
 
 			// Start animating
 			sb.Begin(element);
@@ -96,7 +97,7 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
 		/// <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
 		/// <returns></returns>
-		public static async Task SlideAndFadeOutAsync(this FrameworkElement element, AnimationSlideInDirection direction, float seconds = 0.3f, bool keepMargin = true, int size = 0)
+		public static async Task SlideAndFadeOutAsync(this FrameworkElement element, AnimationSlideInDirection direction, float seconds = 0.3f, bool keepMargin = true, int size = 0, bool fading = false)
 		{
 			// Create the storyboard
 			var sb = new Storyboard();
@@ -123,7 +124,8 @@ namespace Synergy.WPF.Common.Animations
 			}
 
 			// Add fade in animation
-			sb.AddFadeOut(seconds);
+			if (fading)
+				sb.AddFadeOut(seconds);
 
 			// Start animating
 			sb.Begin(element);
