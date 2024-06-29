@@ -82,6 +82,8 @@
                                       HorizontalAlignment="Stretch"
                                       Background="{TemplateBinding Background}"
                                       Foreground="{TemplateBinding Foreground}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
                                       Focusable="false"
                                       ClickMode="Press"
                                       IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, 
