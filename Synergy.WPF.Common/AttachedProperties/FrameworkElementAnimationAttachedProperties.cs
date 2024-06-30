@@ -4,6 +4,7 @@ using System;
 using System.Windows;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Synergy.WPF.Common.AttachedProperties
 {
@@ -209,6 +210,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
@@ -227,6 +230,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f);
@@ -245,6 +250,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
@@ -263,6 +270,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f);
@@ -281,6 +290,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
@@ -299,6 +310,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f);
@@ -317,6 +330,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
@@ -335,6 +350,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			if (value)
 				// Animate in
 				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f);
@@ -352,6 +369,8 @@ namespace Synergy.WPF.Common.AttachedProperties
 	{
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
+			element.RenderTransform = new TranslateTransform();
+
 			// Animate in
 			await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, !value, !value ? 0 : 0.3f);
 		}
