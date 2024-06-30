@@ -211,10 +211,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Left, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 		}
 	}
 
@@ -229,10 +229,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Left, firstLoad ? 0 : 0.3f, keepMargin: false);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Left, firstLoad, firstLoad ? 0 : 0.3f);
 		}
 	}
 
@@ -247,10 +247,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Right, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 		}
 	}
 
@@ -265,45 +265,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Right, firstLoad ? 0 : 0.3f, keepMargin: false);
-		}
-	}
-
-	/// <summary>
-	/// Animates a framework element sliding it in from the right on show
-	/// and sliding out to the right on hide
-	/// </summary>
-	public class AnimateSlideInFromRightMarginProperty : AnimateBaseProperty<AnimateSlideInFromRightMarginProperty>
-	{
-		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
-		{
-			if (value)
-				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: true, fading: false);
-			else
-				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Right, firstLoad ? 0 : 0.3f, keepMargin: true, fading: false);
-		}
-	}
-
-	/// <summary>
-	/// Animates a framework element sliding it in from the right on show
-	/// and sliding out to the right on hide
-	/// </summary>
-	public class AnimateSlideAndFadeInFromRightMarginProperty :
-		AnimateBaseProperty<AnimateSlideAndFadeInFromRightMarginProperty>
-	{
-		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
-		{
-			if (value)
-				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: true);
-			else
-				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Right, firstLoad ? 0 : 0.3f, keepMargin: true);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Right, firstLoad, firstLoad ? 0 : 0.3f);
 		}
 	}
 
@@ -318,10 +283,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Top, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 		}
 	}
 
@@ -336,10 +301,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Top, firstLoad ? 0 : 0.3f, keepMargin: false);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Top, firstLoad, firstLoad ? 0 : 0.3f);
 		}
 	}
 
@@ -354,10 +319,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Bottom, firstLoad ? 0 : 0.3f, keepMargin: false, fading: false);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f, fading: false);
 		}
 	}
 
@@ -372,10 +337,10 @@ namespace Synergy.WPF.Common.AttachedProperties
 		{
 			if (value)
 				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: false);
+				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f);
 			else
 				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Bottom, firstLoad ? 0 : 0.3f, keepMargin: false);
+				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f);
 		}
 	}
 
@@ -388,44 +353,7 @@ namespace Synergy.WPF.Common.AttachedProperties
 		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
 		{
 			// Animate in
-			await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, !value, !value ? 0 : 0.3f, keepMargin: false);
-		}
-	}
-
-	/// <summary>
-	/// Animates a framework element sliding up from the bottom on show
-	/// and sliding out to the bottom on hide
-	/// NOTE: Keeps the margin
-	/// </summary>
-	public class AnimateSlideInFromBottomMarginProperty : AnimateBaseProperty<AnimateSlideInFromBottomMarginProperty>
-	{
-		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
-		{
-			if (value)
-				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: true, fading: false);
-			else
-				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Bottom, firstLoad ? 0 : 0.3f, keepMargin: true, fading: false);
-		}
-	}
-
-	/// <summary>
-	/// Animates a framework element sliding up from the bottom on show
-	/// and sliding out to the bottom on hide
-	/// NOTE: Keeps the margin
-	/// </summary>
-	public class AnimateSlideAndFadeInFromBottomMarginProperty :
-		AnimateBaseProperty<AnimateSlideAndFadeInFromBottomMarginProperty>
-	{
-		protected override async void DoAnimation(FrameworkElement element, bool value, bool firstLoad)
-		{
-			if (value)
-				// Animate in
-				await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, firstLoad, firstLoad ? 0 : 0.3f, keepMargin: true);
-			else
-				// Animate out
-				await element.SlideAndFadeOutAsync(AnimationSlideInDirection.Bottom, firstLoad ? 0 : 0.3f, keepMargin: true);
+			await element.SlideAndFadeInAsync(AnimationSlideInDirection.Bottom, !value, !value ? 0 : 0.3f);
 		}
 	}
 

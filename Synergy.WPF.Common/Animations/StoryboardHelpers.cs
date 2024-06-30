@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace Synergy.WPF.Common.Animations
 {
@@ -13,6 +14,9 @@ namespace Synergy.WPF.Common.Animations
 	/// </summary>
 	public static class StoryboardHelpers
 	{
+		private const string SLIDING_PROPERTY_PATH_X = "(FrameworkElement.RenderTransform).(TranslateTransform.X)";
+		private const string SLIDING_PROPERTY_PATH_Y = "(FrameworkElement.RenderTransform).(TranslateTransform.Y)";
+
 		#region Sliding To/From Left
 
 		/// <summary>
@@ -22,20 +26,18 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the left to start from</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
-		public static void AddSlideFromLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideFromLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
-			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
-				To = new Thickness(0),
+				From = -offset,
+				To = 0,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_X));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);
@@ -48,20 +50,19 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the left to end at</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
-		public static void AddSlideToLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideToLeft(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
 			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(0),
-				To = new Thickness(-offset, 0, keepMargin ? offset : 0, 0),
+				From = 0,
+				To = -offset,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_X));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);
@@ -78,20 +79,19 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the right to start from</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
-		public static void AddSlideFromRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideFromRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
 			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(keepMargin ? offset : 0, 0, -offset, 0),
-				To = new Thickness(0),
+				From = offset,
+				To = 0,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_X));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);
@@ -104,20 +104,19 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the right to end at</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
-		public static void AddSlideToRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideToRight(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
 			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(0),
-				To = new Thickness(keepMargin ? offset : 0, 0, -offset, 0),
+				From = 0,
+				To = offset,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_X));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);
@@ -134,20 +133,19 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the top to start from</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
-		public static void AddSlideFromTop(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideFromTop(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
 			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(0, -offset, 0, keepMargin ? offset : 0),
-				To = new Thickness(0),
+				From = -offset,
+				To = 0,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_Y));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);
@@ -160,20 +158,19 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the top to end at</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
-		public static void AddSlideToTop(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideToTop(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
 			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(0),
-				To = new Thickness(0, -offset, 0, keepMargin ? offset : 0),
+				From = 0,
+				To = -offset,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_Y));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);
@@ -190,20 +187,19 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the bottom to start from</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
-		public static void AddSlideFromBottom(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideFromBottom(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
 			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(0, keepMargin ? offset : 0, 0, -offset),
-				To = new Thickness(0),
+				From = offset,
+				To = 0,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_Y));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);
@@ -216,20 +212,19 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="seconds">The time the animation will take</param>
 		/// <param name="offset">The distance to the bottom to end at</param>
 		/// <param name="decelerationRatio">The rate of deceleration</param>
-		/// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
-		public static void AddSlideToBottom(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f, bool keepMargin = true)
+		public static void AddSlideToBottom(this Storyboard storyboard, float seconds, double offset, float decelerationRatio = 0.9f)
 		{
 			// Create the margin animate from right 
-			var animation = new ThicknessAnimation
+			var animation = new DoubleAnimation
 			{
-				Duration = new Duration(TimeSpan.FromSeconds(seconds)),
-				From = new Thickness(0),
-				To = new Thickness(0, keepMargin ? offset : 0, 0, -offset),
+				From = 0,
+				To = offset,
+				Duration = TimeSpan.FromSeconds(seconds),
 				DecelerationRatio = decelerationRatio
 			};
 
 			// Set the target property name
-			Storyboard.SetTargetProperty(animation, new PropertyPath("Margin"));
+			Storyboard.SetTargetProperty(animation, new(SLIDING_PROPERTY_PATH_Y));
 
 			// Add this to the storyboard
 			storyboard.Children.Add(animation);

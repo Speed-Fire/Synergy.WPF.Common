@@ -48,7 +48,7 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
 		/// <param name="firstLoad">Indicates if this is the first load</param>
 		/// <returns></returns>
-		public static async Task SlideAndFadeInAsync(this FrameworkElement element, AnimationSlideInDirection direction, bool firstLoad, float seconds = 0.3f, bool keepMargin = true, int size = 0, bool fading = true)
+		public static async Task SlideAndFadeInAsync(this FrameworkElement element, AnimationSlideInDirection direction, bool firstLoad, float seconds = 0.3f, int size = 0, bool fading = true)
 		{
 			// Create the storyboard
 			var sb = new Storyboard();
@@ -58,19 +58,19 @@ namespace Synergy.WPF.Common.Animations
 			{
 				// Add slide from left animation
 				case AnimationSlideInDirection.Left:
-					sb.AddSlideFromLeft(seconds, size == 0 ? element.ActualWidth : size, keepMargin: keepMargin);
+					sb.AddSlideFromLeft(seconds, size == 0 ? element.ActualWidth : size);
 					break;
 				// Add slide from right animation
 				case AnimationSlideInDirection.Right:
-					sb.AddSlideFromRight(seconds, size == 0 ? element.ActualWidth : size, keepMargin: keepMargin);
+					sb.AddSlideFromRight(seconds, size == 0 ? element.ActualWidth : size);
 					break;
 				// Add slide from top animation
 				case AnimationSlideInDirection.Top:
-					sb.AddSlideFromTop(seconds, size == 0 ? element.ActualHeight : size, keepMargin: keepMargin);
+					sb.AddSlideFromTop(seconds, size == 0 ? element.ActualHeight : size);
 					break;
 				// Add slide from bottom animation
 				case AnimationSlideInDirection.Bottom:
-					sb.AddSlideFromBottom(seconds, size == 0 ? element.ActualHeight : size, keepMargin: keepMargin);
+					sb.AddSlideFromBottom(seconds, size == 0 ? element.ActualHeight : size);
 					break;
 			}
 			// Add fade in animation
@@ -97,7 +97,7 @@ namespace Synergy.WPF.Common.Animations
 		/// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
 		/// <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
 		/// <returns></returns>
-		public static async Task SlideAndFadeOutAsync(this FrameworkElement element, AnimationSlideInDirection direction, float seconds = 0.3f, bool keepMargin = true, int size = 0, bool fading = false)
+		public static async Task SlideAndFadeOutAsync(this FrameworkElement element, AnimationSlideInDirection direction, bool firstLoad, float seconds = 0.3f, int size = 0, bool fading = false)
 		{
 			// Create the storyboard
 			var sb = new Storyboard();
@@ -107,19 +107,19 @@ namespace Synergy.WPF.Common.Animations
 			{
 				// Add slide to left animation
 				case AnimationSlideInDirection.Left:
-					sb.AddSlideToLeft(seconds, size == 0 ? element.ActualWidth : size, keepMargin: keepMargin);
+					sb.AddSlideToLeft(seconds, size == 0 ? element.ActualWidth : size);
 					break;
 				// Add slide to right animation
 				case AnimationSlideInDirection.Right:
-					sb.AddSlideToRight(seconds, size == 0 ? element.ActualWidth : size, keepMargin: keepMargin);
+					sb.AddSlideToRight(seconds, size == 0 ? element.ActualWidth : size);
 					break;
 				// Add slide to top animation
 				case AnimationSlideInDirection.Top:
-					sb.AddSlideToTop(seconds, size == 0 ? element.ActualHeight : size, keepMargin: keepMargin);
+					sb.AddSlideToTop(seconds, size == 0 ? element.ActualHeight : size);
 					break;
 				// Add slide to bottom animation
 				case AnimationSlideInDirection.Bottom:
-					sb.AddSlideToBottom(seconds, size == 0 ? element.ActualHeight : size, keepMargin: keepMargin);
+					sb.AddSlideToBottom(seconds, size == 0 ? element.ActualHeight : size);
 					break;
 			}
 
@@ -131,14 +131,14 @@ namespace Synergy.WPF.Common.Animations
 			sb.Begin(element);
 
 			// Make page visible only if we are animating
-			if (seconds != 0)
+			if (seconds != 0 || firstLoad)
 				element.Visibility = Visibility.Visible;
 
 			// Wait for it to finish
 			await Task.Delay((int)(seconds * 1000));
 
 			// Make element invisible
-			if (element.Opacity == 0)
+			if (element.Opacity == 0 || !fading)
 				element.Visibility = Visibility.Hidden;
 		}
 
