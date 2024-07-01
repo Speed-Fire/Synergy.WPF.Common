@@ -24,47 +24,77 @@ namespace Synergy.WPF.Common.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Sidebar), new FrameworkPropertyMetadata(typeof(Sidebar)));       
         }
 
-        public static readonly DependencyProperty TitleIconProperty =
+		#region Dependency properties
+
+		#region TitleIcon
+
+		public static readonly DependencyProperty TitleIconProperty =
             DependencyProperty.Register("TitleIcon", typeof(Geometry), typeof(Sidebar), new PropertyMetadata(null));
 
-        public static readonly DependencyProperty TitleIconColorProperty =
+		public Geometry TitleIcon
+		{
+			get { return (Geometry)GetValue(TitleIconProperty); }
+			set { SetValue(TitleIconProperty, value); }
+		}
+
+		#endregion
+
+		#region TitleIconColor
+
+		public static readonly DependencyProperty TitleIconColorProperty =
             DependencyProperty.Register("TitleIconColor", typeof(Brush), typeof(Sidebar), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(42, 132, 241))));
 
-        public static readonly DependencyProperty NavItemsProperty =
+		public Brush TitleIconColor
+		{
+			get { return (Brush)GetValue(TitleIconColorProperty); }
+			set { SetValue(TitleIconColorProperty, value); }
+		}
+
+		#endregion
+
+		#region NavItems
+
+		public static readonly DependencyProperty NavItemsProperty =
             DependencyProperty.Register("NavItems", typeof(IEnumerable<NavItem>), typeof(Sidebar), new PropertyMetadata(new List<NavItem>()));
 
-        public static readonly DependencyProperty OutputProperty =
+		public IEnumerable<NavItem> NavItems
+		{
+			get { return (IEnumerable<NavItem>)GetValue(NavItemsProperty); }
+			set { SetValue(NavItemsProperty, value); }
+		}
+
+		#endregion
+
+		#region Output
+
+		public static readonly DependencyProperty OutputProperty =
             DependencyProperty.Register("Output", typeof(Frame), typeof(Sidebar), new PropertyMetadata(null));
 
-        public Geometry TitleIcon
-        {
-            get { return (Geometry)GetValue(TitleIconProperty); }
-            set { SetValue(TitleIconProperty, value); }
-        }
-
-
-        public Brush TitleIconColor
-        {
-            get { return (Brush)GetValue(TitleIconColorProperty); }
-            set { SetValue(TitleIconColorProperty, value); }
-        }
-
-
-        public IEnumerable<NavItem> NavItems
-        {
-            get { return (IEnumerable<NavItem>)GetValue(NavItemsProperty); }
-            set { SetValue(NavItemsProperty, value); }
-        }
-
-
-        public Frame Output
+		public Frame Output
         {
             get { return (Frame)GetValue(OutputProperty); }
             set { SetValue(OutputProperty, value); }
         }
 
+		#endregion
 
-        protected override void OnSelectionChanged(SelectionChangedEventArgs e)
+		#region BottomContent
+
+		public static readonly DependencyProperty BottomContentProperty =
+			DependencyProperty.Register("BottomContent", typeof(object), typeof(Sidebar),
+				new PropertyMetadata(null));
+
+		public object BottomContent
+		{
+			get => GetValue(BottomContentProperty);
+			set => SetValue(BottomContentProperty, value);
+		}
+
+		#endregion
+
+		#endregion
+
+		protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
             base.OnSelectionChanged(e);
 
@@ -81,7 +111,7 @@ namespace Synergy.WPF.Common.Controls
                 navitem.NavCommand.Execute(Output);
                 return;
             }
-
+			
             if (Output is null)
                 throw new NullReferenceException("Output is null!");
 

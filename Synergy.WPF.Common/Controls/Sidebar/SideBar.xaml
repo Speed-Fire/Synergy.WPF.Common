@@ -31,6 +31,12 @@
                             <ItemsPresenter/>
                         </ScrollViewer>
 
+                        <ContentPresenter Grid.Row="2"
+                                          Margin="0 5 0 5"
+                                          VerticalAlignment="Bottom"
+                                          ContentSource="{x:Null}"
+                                          Content="{TemplateBinding BottomContent}"/>
+
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
